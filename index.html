@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Pavanam" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+		<style>
+			:root {
+				--text-color: #29343a;
+				--text-color-inverse: white;
+				--primary-color: #8fba92;
+				--secondary-color: #7da9c4;
+				--colored-text: #143468;
+				--lightgrey: #e8edf4;
+			}
+
+			.text-c {
+				color: var(--text-color);
+			}
+
+			.text-c-inv {
+				color: var(--text-color-inverse);
+			}
+
+			.text-c1 {
+				color: var(--primary-color);
+			}
+			.text-c2 {
+				color: var(--secondary-color);
+			}
+
+			.bg {
+				background: var(--text-color);
+			}
+			.bg-c1 {
+				background: var(--primary-color);
+			}
+			.bg-c2 {
+				background: var(--secondary-color);
+			}
+
+			h1, h2, h3, h4, p, span, div, header,
+			section, ul, ol, li, b, a, label {
+				margin: 0px;
+				padding: 0px;
+				font-family: inherit;
+				font-size: inherit;
+				font-weight: inherit;
+				text-decoration: inherit;
+				color: var(--text-color);
+				box-sizing: border-box
+			}
+
+			header.top.header {
+				position: fixed;
+				width: 100vw;
+				top:0px;
+				left:0px;
+				z-index: 10;
+				background: white;
+				box-shadow: 1px 5px 5px lightgrey;
+			}
+
+			header.top.header > div {
+				justify-content: space-between;
+				max-width: 900px;
+				margin: 0px auto;
+			}
+
+			h3 a {
+				margin-left: 10px;
+				color: var(--colored-text);
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			li {
+				position: relative;
+				margin-bottom: 5px;
+				margin-left: 20px;
+				color: var(--text-color);
+			}
+
+			li i {
+				position: absolute;
+				top: 3px;
+				left: -15px;
+				color: var(--secondary-color);
+			}
+
+			html, body {
+				max-width: 900px;
+				margin: 0px auto;
+			}
+
+			body {
+				padding-top: 80px;
+				padding-bottom: 30px;
+				font-family: 'Pavanam', sans-serif;
+			}
+
+			.header {
+				justify-content: space-between;
+				color: var(--secondary-color);
+				background: var(--lightgrey);
+			}
+
+			body h1 {
+				font-size: 44px;
+			}
+
+			body h2 {
+				text-align: center;
+				font-size: 24px;
+				margin: 10px 0px 5px 0px;
+			}
+
+			body h3 {
+				font-size: 20px;
+				color: var(--colored-text);
+			}
+
+			body h4 {
+				font-size: 18px;
+				color: var(--color-3);
+			}
+
+			header h1 span:nth-child(1) {
+				color: var(--primary-color);
+			}
+			header h1 span:nth-child(2){
+				color: var(--primary-color);
+			}
+
+			.flexed {
+				align-items: center;
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			.icon-link {
+				font-size: 28px;
+				padding: 0px 10px;
+			}
+
+			i {
+				margin-right: 10px;
+			}
+
+			a {
+				color: var(--secondary-color);
+			}
+
+			section.card {
+				box-shadow: 5px 5px 20px lightgrey;
+				border-radius: 3px;
+			}
+
+			section.card > * {
+				padding: 7.5px 20px;
+			}
+
+			section.card > *:first-child {
+				border-radius: 3px 3px 0px 0px;
+			}
+
+			section.card ul {
+				background: var(--color-3);
+			}
+
+			#skills {
+				margin: 7.5px 0px;
+			}
+
+			#skills > div > span {
+				text-align: center;
+				display: inline-block;
+				padding: 4px 10px;
+				border-radius: 3px;
+				margin: 5px 0px;
+			}
+
+			#skills span:first-child {
+				margin-left: 10px;
+			}
+
+			#skills > div {
+				display: inline-block;
+				font-size: 20px;
+				margin-bottom: 5px;
+				margin-right: 10px;
+			}
+
+			@media print {
+			 	body {
+			 		padding: 15px 0px;
+			 	}
+			 	header.top.header {
+			 		position: static;
+			 		box-shadow: none;
+			 		border-bottom: 1px solid lightgrey;
+			 		margin-bottom: 10px;
+			 	}
+			}
+		</style>
+	</head>
+	<body>
+		<header class='top header'>
+			<div class='flexed'>
+				<h1>Kevin <span class='text-c1'>D</span><span class='text-c1'>.</span> Dam</h1>
+				<section class='flexed'>
+					<a href='https://www.linkedin.com/in/kevin-dam-50099313/' class='flexed icon-link text-c1'>
+						<i class='fab fa-linkedin'></i>
+						<span>Linked In</span>
+					</a>
+					<a href='http://www.github.com/madnivek' class='flexed icon-link text-c1'>
+						<i class='fab fa-github'></i>
+						<span>Github</span>
+					</a>
+					<a href='http://www.kevin-dam.co' class='flexed icon-link text-c1'>
+						<i class='fas fa-user-circle'></i>
+						<span>Portfolio</span>
+					</a>
+					<a href='mailto:kevinddam@gmail.com' class='flexed icon-link text-c1'>
+						<i class='fas fa-envelope'></i>
+						<span>Email</span>
+					</a>
+				</section>
+			</div>
+		</header>
+		<section id='skills' class='flexed'>
+			<div class='text-c'>Languages:
+				<span class='bg-c2 text-c-inv'>CSS</span>
+				<span class='bg-c2 text-c-inv'>HTML</span>
+				<span class='bg-c2 text-c-inv'>Ruby</span>
+				<span class='bg-c2 text-c-inv'>SQL</span>
+			</div>
+			<div class='text-c'>Frameworks:
+				<span class='bg-c2 text-c-inv'>React</span>
+				<span class='bg-c2 text-c-inv'>React Native</span>
+				<span class='bg-c2 text-c-inv'>Redux</span>
+				<span class='bg-c2 text-c-inv'>MobX</span>
+				<span class='bg-c2 text-c-inv'>Rails</span>
+			</div>
+			<div class='text-c'>Software:
+				<span class='bg-c2 text-c-inv'>Adobe Photoshop</span>
+				<span class='bg-c2 text-c-inv'>Adobe Illustrator</span>
+				<span class='bg-c2 text-c-inv'>Adobe InDesign</span>
+				<span class='bg-c2 text-c-inv'>MS Office</span>
+			</div>
+		</section>
+		<h2>Work Experience</h2>
+		<section class='card'>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					Web Development Lead, Data Cubed, Brooklyn, NY
+				</h3>
+				<h4>March 2018 - Present</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					Planning and implementation of all javascript web development, training, and interviewing.
+				</li>
+				<li><i class='fas fa-caret-right'></i>
+					Developed React Native application for mobile user data collection - serves as primary collection tool for machine learning datasets.
+				</li>
+			</ul>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					Front End Software Developer, Data Cubed, Brooklyn, NY
+				</h3>
+				<h4>July 2017 - March 2018</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					Architectured and contributed to product platform from the ground up. Main point of contact for front-end development.
+				</li>
+				<li><i class='fas fa-caret-right'></i>
+					Leveraged React & Redux to construct complex survey building application with industry standard features, currently in production.
+				</li>
+			</ul>
+		</section>
+		<h2>Projects</h2>
+		<section class='card'>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					Forever Note
+					<a href='https://forever-note.herokuapp.com'><i class='fas fa-globe-asia'></i>Live</a>
+					<a href='http://github.com/madnivek/forevernote'><i class='fab fa-github'></i>Github</a>
+				</h3>
+				<h4>
+					JavaScript, Ruby, Rails, React, Redux, SQL
+				</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					Fully featured note-taking application with notebook organization, note tagging, tag search, note search, and modern UI.
+				</li>
+			</ul>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					Saving Sister
+					<a href='http://www.kevin-dam.co/Saving-Sister/'><i class='fas fa-globe-asia'></i>Live</a>
+					<a href='http://github.com/madnivek/Saving-Sister'><i class='fab fa-github'></i>Github</a>
+				</h3>
+				<h4>
+					Javascript, HTML5
+				</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					Original web browser game built using vanilla JavaScript and HTML5 Canvas. Incorporates best-practice animation techniques for the rendering and updating assets for optimal performance.
+				</li>
+			</ul>
+		</section>
+		<h2>Other Experience</h2>
+			<section class='card'>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					Master's Thesis Project, Charité University, Berlin, DE
+				</h3>
+				<h4>
+					Sept 2012 - May 2014
+				</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					Determined the effect of low cerebral blood flow and nutrition on the risk of neurodegenerative disease. Thesis results published (first-author) in Behavioral Brain Research ( <a href='https://www.ncbi.nlm.nih.gov/pubmed/28087280'>link</a> ).
+				</li>
+			</ul>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					Research Assistant, The Rockefeller University, New York, NY
+				</h3>
+				<h4>
+					Sept 2014 - Feb 2017
+				</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					Performed full spectrum of molecular assays and experimental animal procedures to assess the molecular mechanisms of Parkinson's disease. Contributions received acknowledgement in Nature Neuroscience and more recent research currently in review for publishing ( <a href='http://www.nature.com/neuro/journal/v18/n9/abs/nn.4070.html'>link</a> ).
+				</li>
+			</ul>
+		</section>
+		<h2>Education</h2>
+			<section class='card'>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					Full Stack Web Development, App Academy, New York, NY
+				</h3>
+				<h4>
+					Spring 2017
+				</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					1000+ hours, immersive coding bootcamp with a competitive < 3% admission rate
+				</li>
+			</ul>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					M.Sc in Medical Neurobiology, Charité University, Berlin, DE 
+				</h3>
+				<h4>
+					Sept 2012 - May 2014
+				</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					Curriculum Highlights: Intro to MATLAB
+				</li>
+			</ul>
+			<header class='header flexed'>
+				<h3><i class='fas fa-caret-down'></i>
+					B.Sc in Neurobiology and Behavior, Cornell University, Ithaca, NY
+				</h3>
+				<h4>
+					August 2008 - May 2012
+				</h4>
+			</header>
+			<ul>
+				<li><i class='fas fa-caret-right'></i>
+					GPA: 3.5
+				</li>
+				<li><i class='fas fa-caret-right'></i>
+					Curriculum Highlights: Intro to CS, Multivariable Calculus
+				</li>
+			</ul>
+		</section>
+	</body>
+</html>
