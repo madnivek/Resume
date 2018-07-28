@@ -11,6 +11,20 @@
 				--secondary-color: #7da9c4;
 				--colored-text: #143468;
 				--lightgrey: #e8edf4;
+				--green: #8fba92;
+				--gold: #e5dd87;
+				--orange: #e5a187;
+			}
+
+			.anim-start {
+				opacity: 0;
+				transform: translateY(150%);
+			}
+
+			.anim-end {
+				opacity: 1;
+				transform: translateX(0%);
+				transition: opacity 0.2s ease-in, transform 0.5s ease-in;
 			}
 
 			.text-c {
@@ -50,14 +64,24 @@
 				box-sizing: border-box
 			}
 
+			h1, h2, h3, h4, h5, span {
+				white-space: nowrap;
+			}
+
 			header.top.header {
 				position: fixed;
-				width: 100vw;
+				width: 100%;
 				top:0px;
 				left:0px;
 				z-index: 10;
 				background: white;
 				box-shadow: 1px 5px 5px lightgrey;
+			}
+
+			header.top.header.placeholder {
+				position: static;
+				box-shadow: none;
+				margin-bottom: 15px;
 			}
 
 			header.top.header > div {
@@ -95,7 +119,6 @@
 			}
 
 			body {
-				padding-top: 80px;
 				padding-bottom: 30px;
 				font-family: 'Pavanam', sans-serif;
 			}
@@ -136,6 +159,17 @@
 			.flexed {
 				align-items: center;
 				display: flex;
+			}
+
+			.flexed.center {
+				justify-content: center;
+			}
+
+			.flexed.space-between {
+				justify-content: space-between;
+			}
+
+			.flexed.wrap {
 				flex-wrap: wrap;
 			}
 
@@ -158,7 +192,7 @@
 			}
 
 			section.card > * {
-				padding: 7.5px 20px;
+				padding: 4px 10px;
 			}
 
 			section.card > *:first-child {
@@ -169,18 +203,46 @@
 				background: var(--color-3);
 			}
 
-			#skills {
-				margin: 7.5px 0px;
-				justify-content: space-between;
-			}
-
-			#skills > div > span {
+			.tag-box {
+				text-shadow: 0px 0px 10px black;
 				text-align: center;
 				display: inline-block;
 				font-size: 18px;
 				padding: 2px 6px;
 				border-radius: 3px;
-				margin: 5px 0px;
+				margin: 5px 2.5px;
+				color: white;
+			}
+
+			#skills-legend, #skills {
+				margin: 7.5px 0px;
+			}
+
+			#skills-legend > div > span {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			#skills-legend > div {
+				margin-right: 10px;
+			}
+
+			.legend-box {
+				width: 15px;
+				height: 15px;
+				border-radius: 3px;
+			}
+
+			.legend-box.expert, .tag-box.expert {
+				background: var(--green);
+			}
+
+			.legend-box.proficient, .tag-box.proficient {
+				background: var(--gold);
+			}
+
+			.legend-box.some-exp, .tag-box.some-exp {
+				background: var(--orange);
 			}
 
 			#skills span:first-child {
@@ -193,24 +255,50 @@
 				margin-bottom: 5px;
 			}
 
+			.justified-text {
+				width: 200px;
+			}
+
 			@media print {
 			 	body {
 			 		padding: 15px 0px;
 			 	}
-			 	header.top.header {
-			 		position: static;
+			 	header.top.header:not(.placeholder) {
+			 		display:none;
 			 		box-shadow: none;
 			 		border-bottom: 1px solid lightgrey;
 			 		margin-bottom: 10px;
 			 	}
 			}
 		</style>
+		<script>
+			const animate = () => {
+				let delay = 150
+				const speed = 150
+				const children = Array.from(document.body.children)
+				children.forEach(node => node.classList.add('anim-start'))
+				children.forEach(node => {
+					setTimeout(() => {
+						node.classList.remove('anim-start')
+						node.classList.add('anim-end')
+					}, delay)
+					delay += speed
+				})
+			}
+			document.addEventListener('DOMContentLoaded', () => {
+				animate()
+				const header = document.getElementById('fixed-header')
+				const placeholder = header.cloneNode(true)
+				placeholder.classList.add('placeholder')
+				header.parentNode.insertBefore(placeholder, header)
+			})
+		</script>
 	</head>
 	<body>
-		<header class='top header'>
-			<div class='flexed'>
+		<header id='fixed-header' class='top header'>
+			<div class='flexed wrap'>
 				<h1>Kevin <span class='text-c1'>D</span><span class='text-c1'>.</span> Dam</h1>
-				<section class='flexed'>
+				<section class='flexed wrap'>
 					<a target="_blank" href='https://www.linkedin.com/in/kevin-dam-50099313/' class='flexed icon-link text-c1'>
 						<i class='fab fa-linkedin'></i>
 						<span>Linked In</span>
@@ -234,28 +322,40 @@
 				</section>
 			</div>
 		</header>
-		<section id='skills' class='flexed'>
-			<div class='text-c'>Languages:
-				<span class='bg-c2 text-c-inv'>JavaScript</span>
-				<span class='bg-c2 text-c-inv'>CSS</span>
-				<span class='bg-c2 text-c-inv'>HTML</span>
-				<span class='bg-c2 text-c-inv'>Ruby</span>
-				<span class='bg-c2 text-c-inv'>SQL</span>
+		<section id='skills-legend' class='flexed'>
+			<div>
+				<span class='legend-box expert'></span>
+				<span>Expert</span>
 			</div>
-			<div class='text-c'>Frameworks:
-				<span class='bg-c2 text-c-inv'>React</span>
-				<span class='bg-c2 text-c-inv'>React Native</span>
-				<span class='bg-c2 text-c-inv'>Redux</span>
-				<span class='bg-c2 text-c-inv'>MobX</span>
-				<span class='bg-c2 text-c-inv'>Rails</span>
+			<div>
+				<span class='legend-box proficient'></span>
+				<span>Proficient</span>
 			</div>
-			<div class='text-c'>Software:
-				<span class='bg-c2 text-c-inv'>Adobe Photoshop</span>
-				<span class='bg-c2 text-c-inv'>Adobe Illustrator</span>
-				<span class='bg-c2 text-c-inv'>Adobe InDesign</span>
-				<span class='bg-c2 text-c-inv'>MS Office</span>
+			<div>
+				<span class='legend-box some-exp'></span>
+				<span>Some Experience</span>
 			</div>
 		</section>
+		<div class='text-c flexed'>Languages:
+			<span class='tag-box bg-c2 text-c-inv expert'>JavaScript</span>
+			<span class='tag-box bg-c2 text-c-inv expert'>CSS</span>
+			<span class='tag-box bg-c2 text-c-inv expert'>HTML</span>
+			<span class='tag-box bg-c2 text-c-inv some-exp'>Ruby</span>
+			<span class='tag-box bg-c2 text-c-inv some-exp'>SQL</span>
+		</div>
+		<div class='text-c flexed'>Frameworks:
+			<span class='tag-box bg-c2 text-c-inv expert'>React</span>
+			<span class='tag-box bg-c2 text-c-inv expert'>React Native</span>
+			<span class='tag-box bg-c2 text-c-inv expert'>Redux</span>
+			<span class='tag-box bg-c2 text-c-inv proficient'>MobX</span>
+			<span class='tag-box bg-c2 text-c-inv some-exp'>Rails</span>
+		</div>
+		<div class='text-c flexed'>Software:
+			<span class='tag-box bg-c2 text-c-inv expert'>MS Office</span>
+			<span class='tag-box bg-c2 text-c-inv proficient'>Adobe InDesign</span>
+			<span class='tag-box bg-c2 text-c-inv some-exp'>Adobe Photoshop</span>
+			<span class='tag-box bg-c2 text-c-inv some-exp'>Adobe Illustrator</span>
+		</div>
 		<h2>Work Experience</h2>
 		<section class='card'>
 			<header class='header flexed'>
