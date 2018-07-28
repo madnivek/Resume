@@ -68,6 +68,16 @@
 				white-space: nowrap;
 			}
 
+			a {
+				color: inherit;
+				transition: color 0.2s ease-in;
+			}
+
+			a:hover {
+				color: var(--orange);
+				transition: color 0.2s ease-in;
+			}
+
 			header.top.header {
 				position: fixed;
 				width: 100%;
@@ -80,6 +90,7 @@
 
 			header.top.header.placeholder {
 				position: static;
+				visibility: hidden;
 				box-shadow: none;
 				margin-bottom: 15px;
 			}
@@ -129,6 +140,10 @@
 				background: var(--lightgrey);
 			}
 
+			.header h3, .header h4 {
+				white-space: normal;
+			}
+
 			body h1 {
 				font-size: 44px;
 			}
@@ -136,7 +151,7 @@
 			body h2 {
 				text-align: center;
 				font-size: 24px;
-				margin: 10px 0px 5px 0px;
+				margin: 20px 0px 10px 0px;
 			}
 
 			body h3 {
@@ -269,6 +284,9 @@
 			 		border-bottom: 1px solid lightgrey;
 			 		margin-bottom: 10px;
 			 	}
+			 	header.top.header.placeholder {
+			 		visibility: visible;
+			 	}
 			}
 		</style>
 		<script>
@@ -276,7 +294,10 @@
 				let delay = 150
 				const speed = 150
 				const children = Array.from(document.body.children)
-				children.forEach(node => node.classList.add('anim-start'))
+				children.forEach(node => {
+					if (node.classList.contains('placeholder')) return
+					node.classList.add('anim-start')
+				})
 				children.forEach(node => {
 					setTimeout(() => {
 						node.classList.remove('anim-start')
@@ -286,11 +307,11 @@
 				})
 			}
 			document.addEventListener('DOMContentLoaded', () => {
-				animate()
 				const header = document.getElementById('fixed-header')
 				const placeholder = header.cloneNode(true)
 				placeholder.classList.add('placeholder')
 				header.parentNode.insertBefore(placeholder, header)
+				animate()
 			})
 		</script>
 	</head>
@@ -322,7 +343,7 @@
 				</section>
 			</div>
 		</header>
-		<section id='skills-legend' class='flexed'>
+		<section id='skills-legend' class='flexed wrap'>
 			<div>
 				<span class='legend-box expert'></span>
 				<span>Expert</span>
@@ -336,21 +357,21 @@
 				<span>Some Experience</span>
 			</div>
 		</section>
-		<div class='text-c flexed'>Languages:
+		<div class='text-c flexed wrap'>Languages:
 			<span class='tag-box bg-c2 text-c-inv expert'>JavaScript</span>
 			<span class='tag-box bg-c2 text-c-inv expert'>CSS</span>
 			<span class='tag-box bg-c2 text-c-inv expert'>HTML</span>
 			<span class='tag-box bg-c2 text-c-inv some-exp'>Ruby</span>
 			<span class='tag-box bg-c2 text-c-inv some-exp'>SQL</span>
 		</div>
-		<div class='text-c flexed'>Frameworks:
+		<div class='text-c flexed wrap'>Frameworks:
 			<span class='tag-box bg-c2 text-c-inv expert'>React</span>
 			<span class='tag-box bg-c2 text-c-inv expert'>React Native</span>
 			<span class='tag-box bg-c2 text-c-inv expert'>Redux</span>
 			<span class='tag-box bg-c2 text-c-inv proficient'>MobX</span>
 			<span class='tag-box bg-c2 text-c-inv some-exp'>Rails</span>
 		</div>
-		<div class='text-c flexed'>Software:
+		<div class='text-c flexed wrap'>Software:
 			<span class='tag-box bg-c2 text-c-inv expert'>MS Office</span>
 			<span class='tag-box bg-c2 text-c-inv proficient'>Adobe InDesign</span>
 			<span class='tag-box bg-c2 text-c-inv some-exp'>Adobe Photoshop</span>
@@ -358,7 +379,7 @@
 		</div>
 		<h2>Work Experience</h2>
 		<section class='card'>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					Web Development Lead, Data Cubed, Brooklyn, NY
 				</h3>
@@ -372,7 +393,7 @@
 					Developed React Native application for mobile user data collection - serves as primary collection tool for machine learning datasets.
 				</li>
 			</ul>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					Front End Software Developer, Data Cubed, Brooklyn, NY
 				</h3>
@@ -389,7 +410,7 @@
 		</section>
 		<h2>Projects</h2>
 		<section class='card'>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					Forever Note
 					<a target="_blank" href='https://forever-note.herokuapp.com'><i class='fas fa-globe-asia'></i>Live</a>
@@ -404,7 +425,7 @@
 					Fully featured note-taking application with notebook organization, note tagging, tag search, note search, and modern UI.
 				</li>
 			</ul>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					Saving Sister
 					<a target="_blank" href='http://www.kevin-dam.co/Saving-Sister/'><i class='fas fa-globe-asia'></i>Live</a>
@@ -422,7 +443,7 @@
 		</section>
 		<h2>Other Experience</h2>
 			<section class='card'>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					Master's Thesis Project, Charité University, Berlin, DE
 				</h3>
@@ -435,7 +456,7 @@
 					Determined the effect of low cerebral blood flow and nutrition on the risk of neurodegenerative disease. Thesis results published (first-author) in Behavioral Brain Research ( <a href='https://www.ncbi.nlm.nih.gov/pubmed/28087280'>link</a> ).
 				</li>
 			</ul>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					Research Assistant, The Rockefeller University, New York, NY
 				</h3>
@@ -451,7 +472,7 @@
 		</section>
 		<h2>Education</h2>
 			<section class='card'>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					Full Stack Web Development, App Academy, New York, NY
 				</h3>
@@ -464,7 +485,7 @@
 					1000+ hours, immersive coding bootcamp with a competitive < 3% admission rate
 				</li>
 			</ul>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					M.Sc in Medical Neurobiology, Charité University, Berlin, DE 
 				</h3>
@@ -477,7 +498,7 @@
 					Curriculum Highlights: Intro to MATLAB
 				</li>
 			</ul>
-			<header class='header flexed'>
+			<header class='header flexed wrap'>
 				<h3><i class='fas fa-caret-down'></i>
 					B.Sc in Neurobiology and Behavior, Cornell University, Ithaca, NY
 				</h3>
